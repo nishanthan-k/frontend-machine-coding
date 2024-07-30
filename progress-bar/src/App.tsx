@@ -7,9 +7,20 @@ export default function App() {
 
   useEffect(() => {
     setInterval(() => {
-      setValue((prev) => prev + 1);
-    }, 100)
-  })
+      if ([35, 47, 65, 71, 83, 92].includes(value)) {
+        setTimeout(() => {
+          setValue((prev) => prev + 1);
+        }, 1000);
+      } else {
+        setValue((prev) => prev + 1);
+      }
+    }, 100);
+
+    /* 
+      we have to add clean up for this interval,
+      but it eliminates the current interval before exiting so it makes long time to complete
+    */
+  }, [value])
 
   return (
     <div className='app'>
