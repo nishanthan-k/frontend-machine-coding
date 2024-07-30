@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import ProgressBar from './ProgressBar';
+import ProgressBar from './components/ProgressBar';
+import { MIN } from './global/Constant';
 
 export default function App() {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(MIN);
+  const [status, setStatus] = useState('');
 
   useEffect(() => {
     setInterval(() => {
@@ -25,7 +27,12 @@ export default function App() {
   return (
     <div className='app'>
       <p>Progress</p>
-      <ProgressBar value={value} />
+      <ProgressBar
+        value={value}
+        onStart={() => setStatus('Loading...')}
+        onComplete={() => setStatus('Completed!')}
+      />
+      <span>{status}</span>
     </div>
   )
 }
