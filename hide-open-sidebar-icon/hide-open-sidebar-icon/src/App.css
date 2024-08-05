@@ -1,0 +1,58 @@
+#root {
+  max-width: 1280px;
+  padding: 2rem;
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.sidebar {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  border: 1px solid slategray;
+  transition: width .5s ease-in-out;
+  overflow: hidden;
+}
+
+.sidebar-open {
+  width: 150px;
+}
+
+.sidebar-close {
+  width: 30px;
+}
+
+.header-open {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-close {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.menu-open, .menu-close {
+  text-align: center;
+}
+
+.menu-open {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+}
+
+.menu-open > div {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1em;
+}
