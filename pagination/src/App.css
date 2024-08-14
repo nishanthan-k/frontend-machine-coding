@@ -1,0 +1,59 @@
+#root {
+  max-width: 1280px;
+}
+
+section {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product_container {
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  gap: 1rem;
+  
+  @media screen and (max-width: 420px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.product {
+  text-align: center;
+  font-size: 14px;
+  height: 100%;
+  width: 100%;
+}
+
+.product img {
+  width: 100%;
+  height: 95%;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.pagination_container {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0 1rem 0;
+  align-items: center;
+}
+
+.pagination {
+  border: 1px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prev_next {
+  padding: .2rem .5rem;
+  cursor: pointer;
+}
