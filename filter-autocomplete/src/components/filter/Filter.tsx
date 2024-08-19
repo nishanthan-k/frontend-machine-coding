@@ -7,7 +7,7 @@ import useDebounce from '../../hooks/useDebounce';
 export default function Filter() {
   const [input, setInput] = useState('');
   const [filteredData, setFilteredData] = useState<filterDataProps[]>([]);
-  const debouncedInput = useDebounce(input, 500);
+  const debouncedInput = useDebounce(input, 300);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
@@ -16,7 +16,7 @@ export default function Filter() {
   const handleFilter = useCallback(() => {
     if (debouncedInput) {
       const data = filterData.filter((e) =>
-        `${e.first_name} ${e.last_name}`.includes(debouncedInput)
+        `${e.first_name} ${e.last_name}`.toLowerCase().includes(debouncedInput.toLowerCase())
       );
       setFilteredData(data);
     } else {
@@ -37,10 +37,11 @@ export default function Filter() {
           id="input"
           value={input}
           onChange={handleChange}
+          autoFocus
         />
       </div>
 
-      {debouncedInput.length > 0 && (
+      {debouncedInput.length > 0 ? (
         <div className='filterResult'>
           {filteredData.length > 0 ? (
             filteredData.map((e, index) => (
@@ -50,6 +51,13 @@ export default function Filter() {
             <p>No results found!</p>
           )}
         </div>
+      ) : (
+        <div className='filterResult'>
+        {filterData.map((e, index) => (
+            <p key={index}>{`${e.first_name} ${e.last_name}`}</p>
+          ))
+        }
+      </div>
       )}
     </div>
   );
