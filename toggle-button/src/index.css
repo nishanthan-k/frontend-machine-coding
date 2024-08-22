@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root[mode="dark"] {
+    --textColor: #ffffff;
+    --bgColor: #252424;
+    --borderColor: #ffffff;
+  }
+  :root[mode="light"] {
+    --textColor: #000000;
+    --bgColor: #ffffff;
+    --borderColor: #000000;
+  }
+}
